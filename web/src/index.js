@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import App from "./App";
+import Code from "./Code";
 import "./index.css";
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -13,7 +14,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}/>
-      <Route path="/code/:code" element={<App />}/>
+      <Route path="/code/:code" element={<Code />}/>
     </Routes>
   </BrowserRouter>
 );
