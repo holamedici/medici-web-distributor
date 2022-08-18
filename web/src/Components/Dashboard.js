@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import QrReader from "./Camera/index";
+import { collection, query, doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase-config";
 
 export default function Dashboard(props) {
-  const [data, setData] = useState('No result');
+  const [data, setData] = useState("No result");
+  const [transactionData, setTransactionData] = useState({
+    senderName: "",
+    amount: "",
+    date: 0,
+  });
 
   const handleLogout = async () => {
     sessionStorage.removeItem("Auth Token");
@@ -21,7 +28,17 @@ export default function Dashboard(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const handleData = async (transactionID) => {
+    const transactionsRef = query(collection(db, "transactions"));
+    getDoc(doc(transactionsRef, transactionID))
+      .then((response) => {
+        setTransactionData(response.data());
+      })
+      .catch((error) => {
+        alert(error);
+      });
+    setData(transactionID);
+  };
   return (
     <div>
       Home Page
@@ -30,7 +47,7 @@ export default function Dashboard(props) {
         <QrReader
           onResult={(result, error) => {
             if (!!result) {
-              setData(result?.text);
+              handleData(result?.text);
             }
 
             if (!!error) {
@@ -39,6 +56,9 @@ export default function Dashboard(props) {
           }}
           style={{ width: "100%" }}
         />
+        <p>{transactionData?.senderName}</p>
+        <p>{transactionData?.amount}</p>
+        <p>{transactionData?.date}</p>
         <p>{data}</p>
       </>
     </div>
