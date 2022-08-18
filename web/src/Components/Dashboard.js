@@ -28,7 +28,7 @@ export default function Dashboard(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleData =  (transactionID) => {
+  const handleData = (transactionID) => {
     console.log("1");
     const transactionsRef = query(collection(db, "transactions"));
     console.log("2");
@@ -41,7 +41,7 @@ export default function Dashboard(props) {
         console.log("5 currentTime", currentTime - data?.date);
         if (data?.executed || currentTime - data?.date > 90000) {
           console.log("outcha");
-           return;
+          return;
         }
         console.log("6");
         const usersRef = doc(db, "users", data.senderID);
@@ -53,7 +53,8 @@ export default function Dashboard(props) {
           updateDoc(usersRef, {
             mediciCredit: userRespData.mediciCredit - data.amount,
           }).then(() => {
-            updateDoc(transactionsRef, {
+            const transRef = doc(db, "transactions", transactionID);
+            updateDoc(transRef, {
               executed: true,
             });
           });
