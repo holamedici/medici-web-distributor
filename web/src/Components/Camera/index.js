@@ -50,7 +50,7 @@ QrReader.defaultProps = {
     facingMode: "environment",
   },
   videoId: "video",
-  scanDelay: 500,
+  scanDelay: 1000,
 };
 
 export default QrReader;
