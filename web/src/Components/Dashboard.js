@@ -30,9 +30,9 @@ export default function Dashboard(props) {
   }, []);
   const handleData = (transactionID) => {
     console.log("1");
-    const transactionsRef = query(collection(db, "transactions"));
+    const transactionsRef = doc(db, "transactions", transactionID);
     console.log("2");
-    getDoc(doc(transactionsRef, transactionID))
+    getDoc(transactionsRef)
       .then((response) => {
         console.log("3", response);
         const data = response.data();
@@ -53,8 +53,8 @@ export default function Dashboard(props) {
           updateDoc(usersRef, {
             mediciCredit: userRespData.mediciCredit - data.amount,
           }).then(() => {
-            const transRef = doc(db, "transactions", transactionID);
-            updateDoc(transRef, {
+            console.log("joeeyy");
+            updateDoc(transactionsRef, {
               executed: true,
             });
           });
