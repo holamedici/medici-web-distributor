@@ -36,11 +36,12 @@ export default function Dashboard(props) {
       .then((response) => {
         console.log("3", response);
         const data = response.data();
-        console.log("4");
+        console.log("4 data", data);
         const currentTime = parseInt(Date.now());
-        console.log("5");
+        console.log("5 currentTime", currentTime);
         if (!data?.executed || currentTime - data?.date > 90) {
-          return;
+          console.log("outcha");
+           return;
         }
         console.log("6");
         const usersRef = doc(db, "users", data.senderID);
