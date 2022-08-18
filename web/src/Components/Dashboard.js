@@ -43,23 +43,39 @@ export default function Dashboard(props) {
           console.log("outcha");
           return;
         }
-        console.log("6");
-        const usersRef = doc(db, "users", data.senderID);
-        console.log("7");
-        getDoc(usersRef).then((userResponse) => {
-          const userRespData = userResponse.data();
-          console.log("res", userRespData);
-          console.log("userResponse", userRespData.mediciCredit - data.amount);
-          updateDoc(usersRef, {
-            mediciCredit: userRespData.mediciCredit - data.amount,
-          }).then(() => {
-            console.log("joeeyy");
-            updateDoc(transactionsRef, {
-              executed: true,
+        if (
+          window.confirm(
+            "Are you sure you want to accept " +
+              data.amount +
+              " credits from " +
+              data.senderName
+          )
+        ) {
+          console.log("6");
+          const usersRef = doc(db, "users", data.senderID);
+          console.log("7");
+          getDoc(usersRef).then((userResponse) => {
+            const userRespData = userResponse.data();
+            console.log("res", userRespData);
+            console.log(
+              "userResponse",
+              userRespData.mediciCredit - data.amount
+            );
+            updateDoc(usersRef, {
+              mediciCredit: userRespData.mediciCredit - data.amount,
+            }).then(() => {
+              console.log("joeeyy");
+              updateDoc(transactionsRef, {
+                executed: true,
+              });
             });
           });
-        });
-        console.log("8");
+          console.log("8");
+          window.alert("Transaction Executed");
+        } else {
+          // Do nothing!
+          window.alert("Transaction declined");
+        }
       })
       .catch((error) => {
         console.log(error);
