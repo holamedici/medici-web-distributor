@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import QrReader from "./Camera/index";
-import { collection, query, doc, getDoc } from "firebase/firestore";
+import { collection, query, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 
 export default function Dashboard(props) {
@@ -30,13 +30,25 @@ export default function Dashboard(props) {
   }, []);
   const handleData = async (transactionID) => {
     const transactionsRef = query(collection(db, "transactions"));
-    getDoc(doc(transactionsRef, transactionID))
-      .then((response) => {
-        setTransactionData(response.data());
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    const response = await getDoc(doc(transactionsRef, transactionID));
+    const data = response.data();
+    const currentTime = await parseInt(Date.now());
+    if (!data?.executed || currentTime - data?.date > 90) {
+      return;
+    }
+
+    
+
+    const usersRef = await doc(db, 'users', data.senderID);
+    const userResponse = await getDoc(usersRef).data();
+    console.log(userResponse.mediciCredit - data.amount);
+    await updateDoc(usersRef, {
+      mediciCredit: userResponse.mediciCredit - data.amount,
+    });
+    await updateDoc(transactionsRef, {
+      executed: true,
+    });
+    setTransactionData(data);
     setData(transactionID);
   };
   return (
