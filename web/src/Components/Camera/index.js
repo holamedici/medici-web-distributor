@@ -47,7 +47,7 @@ export const QrReader = ({
 QrReader.displayName = "QrReader";
 QrReader.defaultProps = {
   constraints: {
-    facingMode: "user",
+    facingMode: "environment",
   },
   videoId: "video",
   scanDelay: 500,
