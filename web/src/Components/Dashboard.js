@@ -38,7 +38,7 @@ export default function Dashboard(props) {
         const data = response.data();
         console.log("4 data", data);
         const currentTime = parseInt(Date.now());
-        console.log("5 currentTime", currentTime);
+        console.log("5 currentTime", currentTime - data?.date);
         if (!data?.executed || currentTime - data?.date > 90) {
           console.log("outcha");
            return;
