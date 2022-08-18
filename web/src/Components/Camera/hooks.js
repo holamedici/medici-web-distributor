@@ -1,7 +1,7 @@
-import {  useEffect, useRef } from 'react';
-import { BrowserQRCodeReader } from '@zxing/browser';
+import { useEffect, useRef } from "react";
+import { BrowserQRCodeReader } from "@zxing/browser";
 
-import { isMediaDevicesSupported, isValidType } from './utils';
+import { isMediaDevicesSupported, isValidType } from "./utils";
 
 // TODO: add support for debug logs
 export const useQrReader = ({
@@ -19,7 +19,7 @@ export const useQrReader = ({
 
     if (
       !isMediaDevicesSupported() &&
-      isValidType(onResult, 'onResult', 'function')
+      isValidType(onResult, "onResult", "function")
     ) {
       const message =
         'MediaDevices API has no support for your browser. You can fix this by running "npm i webrtc-adapter"';
@@ -27,16 +27,16 @@ export const useQrReader = ({
       onResult(null, new Error(message), codeReader);
     }
 
-    if (isValidType(video, 'constraints', 'object')) {
+    if (isValidType(video, "constraints", "object")) {
       codeReader
         .decodeFromConstraints({ video }, videoId, (result, error) => {
-          if (isValidType(onResult, 'onResult', 'function')) {
+          if (isValidType(onResult, "onResult", "function")) {
             onResult(result, error, codeReader);
           }
         })
         .then((controls) => (controlsRef.current = controls))
         .catch((error) => {
-          if (isValidType(onResult, 'onResult', 'function')) {
+          if (isValidType(onResult, "onResult", "function")) {
             onResult(null, error, codeReader);
           }
         });
@@ -45,5 +45,6 @@ export const useQrReader = ({
     return () => {
       controlsRef.current?.stop();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
