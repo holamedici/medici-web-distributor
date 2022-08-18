@@ -28,26 +28,41 @@ export default function Dashboard(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleData = async (transactionID) => {
+  const handleData =  (transactionID) => {
+    console.log("1");
     const transactionsRef = query(collection(db, "transactions"));
-    const response = await getDoc(doc(transactionsRef, transactionID));
-    const data = response.data();
-    const currentTime = await parseInt(Date.now());
-    if (!data?.executed || currentTime - data?.date > 90) {
-      return;
-    }
+    console.log("2");
+    getDoc(doc(transactionsRef, transactionID))
+      .then((response) => {
+        console.log("3", response);
+        const data = response.data();
+        console.log("4");
+        const currentTime = parseInt(Date.now());
+        console.log("5");
+        if (!data?.executed || currentTime - data?.date > 90) {
+          return;
+        }
+        console.log("6");
+        const usersRef = doc(db, "users", data.senderID);
+        console.log("7");
+        getDoc(usersRef).then((userResponse) => {
+          const userRespData = userResponse.data();
+          console.log("res", userRespData);
+          console.log("userResponse", userRespData.mediciCredit - data.amount);
+          updateDoc(usersRef, {
+            mediciCredit: userRespData.mediciCredit - data.amount,
+          }).then(() => {
+            updateDoc(transactionsRef, {
+              executed: true,
+            });
+          });
+        });
+        console.log("8");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    
-
-    const usersRef = await doc(db, 'users', data.senderID);
-    const userResponse = await getDoc(usersRef).data();
-    console.log(userResponse.mediciCredit - data.amount);
-    await updateDoc(usersRef, {
-      mediciCredit: userResponse.mediciCredit - data.amount,
-    });
-    await updateDoc(transactionsRef, {
-      executed: true,
-    });
     setTransactionData(data);
     setData(transactionID);
   };
