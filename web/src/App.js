@@ -3,11 +3,11 @@ import Register from "./Components/Register";
 import Dashboard from "./Components/Dashboard";
 import Login from "./Components/Login";
 import NotFound from "./Components/NotFound";
-import {MainDashboard} from "./Components/MainDashboard";
-import {CameraDashboard} from "./Components/CameraDashboard";
-import {AnalyticsDashboard} from "./Components/AnalyticsDashboard";
-import {ProfileDashboard} from "./Components/ProfileDashboard";
-import {InviteDashboard} from "./Components/InviteDashboard";
+import MainDashboard from "./Components/MainDashboard";
+import CameraDashboard from "./Components/CameraDashboard";
+import AnalyticsDashboard2 from "./Components/AnalyticsDashboard2";
+import ProfileDashboard from "./Components/ProfileDashboard";
+import InviteDashboard from "./Components/InviteDashboard";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
@@ -57,7 +57,7 @@ function App() {
                 />
                 <Route
                   path="analytics"
-                  element={<AnalyticsDashboard setToken={setTokenExists} />}
+                  element={<AnalyticsDashboard2 setToken={setTokenExists} />}
                 />
                 <Route
                   path="profile"

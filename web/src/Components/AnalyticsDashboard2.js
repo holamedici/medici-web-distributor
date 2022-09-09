@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import next from "../imgs/next.png";
 
 
-export default function AnalyticsDashboard(props) {
+export default function AnalyticsDashboard2(props) {
   const [data, setData] = useState([
     {
       sender: "Juan Caramillo",
