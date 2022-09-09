@@ -12,7 +12,6 @@ export default function CameraDashboard(props) {
     date: 0,
   });
 
-
   let navigate = useNavigate();
   useEffect(() => {
     console.log("at home");
@@ -80,11 +79,11 @@ export default function CameraDashboard(props) {
     setData(transactionID);
   };
   return (
-    <div>
-            <br/> <br/>
-      <h3 className="genTitle noMargin">Scan a QR Code</h3>
+    <div className="centerText">
+        <h3 className="genTitle mediciRedText noMargin">Scan Medici QR code below</h3>
+<br/>
       <>
-        <div className=" cameraDiv ">
+        <div className="cameraDiv">
           <QrReader
             className="noMargin"
             onResult={(result, error) => {
@@ -99,10 +98,6 @@ export default function CameraDashboard(props) {
             style={{ width: "100%" }}
           />
         </div>
-        <p>{transactionData?.senderName}</p>
-        <p>{transactionData?.amount}</p>
-        <p>{transactionData?.date}</p>
-        <p>{data}</p>
       </>
     </div>
   );

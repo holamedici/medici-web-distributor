@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Register from "./Components/Register";
-import Dashboard from "./Components/Dashboard";
-import Login from "./Components/Login";
-import NotFound from "./Components/NotFound";
-import MainDashboard from "./Components/MainDashboard";
-import CameraDashboard from "./Components/CameraDashboard";
+import Register from "./components/Register";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import NotFound from "./components/NotFound";
+import MainDashboard from "./components/MainDashboard";
+import CameraDashboard from "./components/CameraDashboard";
+import AnalyticsDashboard from "./components/AnalyticsDashboard";
+import ProfileDashboard from "./components/ProfileDashboard";
+import InviteDashboard from "./components/InviteDashboard";
+
 import { Routes, Route, Navigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [tokenExists, setTokenExists] = useState(false);
   const [user, setUser] = useState({});
@@ -26,14 +27,11 @@ function App() {
   return (
     <div className="App">
       <>
-        {" "}
-        <br />
-        <br />
-        <br />
-        <h1 className="pageTitle">Medici Distributor System</h1>
-        <ToastContainer />
         <Routes>
-          <Route path="/" element={<Login setUser={setUser} setToken={setTokenExists} />} />
+          <Route
+            path="/"
+            element={<Login setUser={setUser} setToken={setTokenExists} />}
+          />
           <Route
             path="/register"
             element={<Register setToken={setTokenExists} />}
@@ -45,9 +43,32 @@ function App() {
                 path="dashboard"
                 element={<Dashboard setToken={setTokenExists} />}
               >
-                <Route index element={<MainDashboard setToken={setTokenExists} />} />
-                <Route path="main" element={<MainDashboard user = {user} setToken={setTokenExists} />} />
-                <Route path="camera" element={<CameraDashboard setToken={setTokenExists} />} />
+                <Route
+                  index
+                  element={<MainDashboard setToken={setTokenExists} />}
+                />
+                <Route
+                  path="main"
+                  element={<MainDashboard setToken={setTokenExists} />}
+                />
+                <Route
+                  path="camera"
+                  element={<CameraDashboard setToken={setTokenExists} />}
+                />
+                <Route
+                  path="analytics"
+                  element={<AnalyticsDashboard setToken={setTokenExists} />}
+                />
+                <Route
+                  path="profile"
+                  element={
+                    <ProfileDashboard user={user} setToken={setTokenExists} />
+                  }
+                />
+                <Route
+                  path="invite"
+                  element={<InviteDashboard setToken={setTokenExists} />}
+                />
               </Route>
             </>
           ) : (

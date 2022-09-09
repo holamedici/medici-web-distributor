@@ -1,0 +1,46 @@
+.dashboardTopMenu {
+  width: 100%;
+  margin: 0px;
+  margin-top: 35px;
+}
+.dashboardMargin{
+    width: 84%;
+    margin: 0px 8%;
+}
+.dashboardTopMenuLink {
+    width: 30px;
+    margin: 14px 0px;
+}
+
+
+.leftSideWidgetIcon{
+height: 20px;
+margin: 15px 0px;
+
+}
+.imgHeight{
+    height: 100%;
+}
+.absoluteArrow{
+    position: absolute;
+    top: 20px;
+    width: 15px;
+    right: 20px;
+}
+
+.widgetQRInviteImgDiv{
+    width: 30%;
+    margin-left: 2%;
+    margin-right: 68%;
+}
+
+.subtitleCamera{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 20px;
+}
+.transactionWidget{
+    padding: 15px 5px;
+    border-bottom: grey 0.5px solid;
+}

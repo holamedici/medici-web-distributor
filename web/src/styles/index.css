@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,500&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  background: rgb(241, 237, 232);
+}
+.smallTopPadding{
+  padding-top: 10px;
+}
+.justifyBetween {
+  display: flex;
+  justify-content: space-between;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.img{
+  width: 100%;
+
+}
+.centerDiv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.widgetPadding{
+  padding: 16px 0px;
+}
+.justifyHorizontal{
+  display: flex;
+  align-items: center;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #e5e5e5;
+}
+.textFieldDiv {
+  width: 100%;
+  margin: 18px 0px;
+}
+.textField {
+  width: 100%;
+}
+.feedbackText {
+  margin-top: -5px;
+}
+.fullscreenCenter {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.generalTitle {
+  color: white;
+  font-weight: 500;
+  font-size: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+.smallTitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0px;
+}
+.pageTitle {
+  font-size: 20px;
+  font-weight: 400;
+}
+.genTitle {
+  font-size: 26px;
+  font-weight: 600;
+}
+.midTextWeight{
+  font-weight: 500;
+
+}
+.bottomBorder{
+  width: 100%;
+  padding: 8px 0px;
+  border-bottom: solid 0.5px #414141;
+}
+.largeTitle{
+  font-size: 33px;
+}
+.loginInner {
+  padding: 20px 8%;
+  width: 84%;
+}
+.genWidget{
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.01) 0px 8px 24px;
+  position: relative;
+  background: white;
+}
+.genWidgetInner{
+  width: 90%;
+  position: relative;
+
+  padding: 25px 5%;
+}
+.geSmallBold{
+  font-weight: 600;
+  font-size: 14px;
+}
+.loginWidget {
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 60%;
+  padding: 30px 2%;
+  margin: 10px 19%;
+  background: white;
+}
+.loginHeader {
+  width: 100%;
+  text-align: left;
+}
+.centerText{
+  text-align: center;
+}
+.mediciRedText {
+  color: #fa5943;
+}
+.noDecoration {
+  text-decoration: none;
+}
+.mediciGreyText {
+  color: #414141;
+}
+.blackText{
+  color: black;
+}
+.genSubtitle {
+  font-size: 15px;
+  color: #414141;
+  padding: 6px 0px;
+}
+.genSmallSubtitle {
+  font-size: 11px;
+  color: #414141;
+  padding: 6px 0px;
+}
+.cameraDiv {
+  max-width: 60%;
+  margin: 0px 20%;
+  border: #fa5943 5px solid;
+  border-radius: 10px;
+  background: #fa5943;
+
+  
+}
+
+.genLink {
+  border-bottom: solid 1px black;
+  text-decoration: none;
+}
+
+.genLinkGrey {
+  border-bottom: solid 1px #414141;
+  text-decoration: none;
+  transition: all 0.6s;
+}
+.genLinkGrey:hover {
+  opacity: 0.7;
+}
+.noMargin {
+  margin: 0px;
+}
+
+.smallLeftPadding{
+  padding-left: 5px;
+}
+.right50{
+  width: 48%;
+  margin-left: 2%;
+}
+.left50{
+  width: 48%;
+  margin-right: 2%;
+}
