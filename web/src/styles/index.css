@@ -118,9 +118,9 @@ body {
 .loginWidget {
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  width: 60%;
+  width: 70%;
   padding: 30px 2%;
-  margin: 10px 19%;
+  margin: 10px 14%;
   background: white;
 }
 .loginHeader {
