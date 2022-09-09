@@ -9,21 +9,23 @@ import Button from "./Common/Button";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
   const handleSignIn = () => {
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, email, password)
       .then((response) => {
+        props.setUser(response.user);
+        console.log(response);
         sessionStorage.setItem(
           "Auth Token",
           response._tokenResponse.refreshToken
         );
-        props.setToken(true)
+        props.setToken(true);
       })
       .then(() => {
         navigate("/dashboard");
-
       })
       .catch((error) => {
         console.log(error);
@@ -36,9 +38,9 @@ export default function Login(props) {
       });
   };
   return (
-    <div>
+    <div className="loginWidget">
       <div className="heading-container">
-        <h3>Login</h3>
+        <h3 className="genTitle">Please Login</h3>
       </div>
 
       <Box
@@ -58,15 +60,20 @@ export default function Login(props) {
         <TextField
           id="password"
           label="Password"
+          type="password"
           variant="outlined"
           onChange={(e) => setPassword(e.target.value)}
           hiddenLabel
         />
       </Box>
-      <Link to="/register">
-        <Button title="Register" />
-      </Link>
+
+   
       <Button title="Login" handleAction={handleSignIn} />
+      <br />
+      <br />
+      <Link to="/register">
+        <span>Register</span>
+      </Link>
     </div>
   );
 }

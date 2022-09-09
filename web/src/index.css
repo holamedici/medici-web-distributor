@@ -3,14 +3,13 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  background: rgb(206, 203, 233);
+  background: rgb(255, 251, 246);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .main {
   width: 100vw;
   height: 100vh;
@@ -32,5 +31,33 @@ code {
   color: white;
   font-size: 20px;
   font-weight: 300;
+  margin: 0px;
+}
+.pageTitle{
+  font-size: 20px;
+  font-weight: 400;
+}
+.genTitle{
+  font-size: 18px;
+  font-weight: 300;
+}
+.loginWidget{
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 50%;
+  padding: 30px 2%;
+  margin: 10px 24%;
+}
+.cameraDiv{
+  width: 40%;
+  margin: 10px 30%;
+}
+
+.genLink{
+  border-bottom: solid 1px black;
+  text-decoration: none;
+}
+
+.noMargin{
   margin: 0px;
 }

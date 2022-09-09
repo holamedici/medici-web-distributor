@@ -45,9 +45,10 @@ export default function Register(props) {
   };
 
   return (
-    <div>
+    <div className="loginWidget">
       <div className="heading-container">
-        <h3>Register</h3>
+
+        <h3 className="genTitle">Create a New Account</h3>
       </div>
 
       <Box
@@ -78,10 +79,15 @@ export default function Register(props) {
           hiddenLabel
         />
       </Box>
-      <Link to="/">
-        <Button title="Login" />
-      </Link>
+
       <Button title="Register" handleAction={handleRegister} />
+      <br />
+      <br />
+      <Link to="/">
+        <span>Already have an account? Login</span>
+      </Link>
+    
+    
     </div>
   );
 }

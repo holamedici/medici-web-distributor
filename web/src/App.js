@@ -4,12 +4,15 @@ import Register from "./Components/Register";
 import Dashboard from "./Components/Dashboard";
 import Login from "./Components/Login";
 import NotFound from "./Components/NotFound";
-
+import MainDashboard from "./Components/MainDashboard";
+import CameraDashboard from "./Components/CameraDashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [tokenExists, setTokenExists] = useState(false);
+  const [user, setUser] = useState({});
+
   useEffect(() => {
     let currentAuthToken = sessionStorage.getItem("Auth Token");
     if (currentAuthToken) {
@@ -23,9 +26,14 @@ function App() {
   return (
     <div className="App">
       <>
+        {" "}
+        <br />
+        <br />
+        <br />
+        <h1 className="pageTitle">Medici Distributor System</h1>
         <ToastContainer />
         <Routes>
-          <Route path="/" element={<Login setToken={setTokenExists} />} />
+          <Route path="/" element={<Login setUser={setUser} setToken={setTokenExists} />} />
           <Route
             path="/register"
             element={<Register setToken={setTokenExists} />}
@@ -34,9 +42,13 @@ function App() {
           {tokenExists ? (
             <>
               <Route
-                path="/dashboard"
+                path="dashboard"
                 element={<Dashboard setToken={setTokenExists} />}
-              />
+              >
+                <Route index element={<MainDashboard setToken={setTokenExists} />} />
+                <Route path="main" element={<MainDashboard user = {user} setToken={setTokenExists} />} />
+                <Route path="camera" element={<CameraDashboard setToken={setTokenExists} />} />
+              </Route>
             </>
           ) : (
             <>
