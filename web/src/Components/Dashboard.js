@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, Outlet, Link } from "react-router-dom";
-import "../Styles/dashboard.css";
+import "../styles/dashboard.css";
 import mediciLogo from "../imgs/medici-m.png";
 import user from "../imgs/user.png";
 
