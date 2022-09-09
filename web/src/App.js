@@ -6,8 +6,8 @@ import NotFound from "./Components/NotFound";
 import MainDashboard from "./Components/MainDashboard";
 import CameraDashboard from "./Components/CameraDashboard";
 import AnalyticsDashboard2 from "./Components/AnalyticsDashboard2";
-import ProfileDashboard from "./Components/ProfileDashboard";
-import InviteDashboard from "./Components/InviteDashboard";
+import ProfileDashboard2 from "./Components/ProfileDashboard2";
+import InviteDashboard2 from "./Components/InviteDashboard2";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
@@ -62,12 +62,12 @@ function App() {
                 <Route
                   path="profile"
                   element={
-                    <ProfileDashboard user={user} setToken={setTokenExists} />
+                    <ProfileDashboard2 user={user} setToken={setTokenExists} />
                   }
                 />
                 <Route
                   path="invite"
-                  element={<InviteDashboard setToken={setTokenExists} />}
+                  element={<InviteDashboard2 setToken={setTokenExists} />}
                 />
               </Route>
             </>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function ProfileDashboard(props) {
+export default function ProfileDashboard2(props) {
   let navigate = useNavigate();
   useEffect(() => {
     console.log("at home");
