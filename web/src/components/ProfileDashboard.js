@@ -14,10 +14,14 @@ export default function MainDashboard(props) {
     console.log("prop", props.user);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const handleLogout = async () => {
+    sessionStorage.removeItem("Auth Token");
+    await props.setToken(false);
+    await navigate("/");
+  };
   return (
     <div className="dashboardMargin">
-      <div className="genWidget">
+      <div className="genWidget" onClick={handleLogout}>
         <div className="genWidgetInner  blackText">
           <p className="genSmallSubtitle noMargin">Welcome</p>
           <p className="largeTitle  midTextWeight noMargin">

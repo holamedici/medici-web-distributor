@@ -11,6 +11,7 @@ export default function CameraDashboard(props) {
     amount: "",
     date: 0,
   });
+  console.log(transactionData);
 
   let navigate = useNavigate();
   useEffect(() => {

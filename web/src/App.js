@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
-import NotFound from "./components/NotFound";
-import MainDashboard from "./components/MainDashboard";
-import CameraDashboard from "./components/CameraDashboard";
-import AnalyticsDashboard from "./components/AnalyticsDashboard";
-import ProfileDashboard from "./components/ProfileDashboard";
-import InviteDashboard from "./components/InviteDashboard";
+import Register from "./Components/Register";
+import Dashboard from "./Components/Dashboard";
+import Login from "./Components/Login";
+import NotFound from "./Components/NotFound";
+import MainDashboard from "./Components/MainDashboard";
+import CameraDashboard from "./Components/CameraDashboard";
+import AnalyticsDashboard from "./Components/AnalyticsDashboard";
+import ProfileDashboard from "./Components/ProfileDashboard";
+import InviteDashboard from "./Components/InviteDashboard";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 function App() {

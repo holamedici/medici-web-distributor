@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import delivery from "../imgs/delivery.png";
-import clock from "../imgs/clock.png";
+import { useNavigate } from "react-router-dom";
+
 import next from "../imgs/next.png";
-import qrcode from "../imgs/qrcode.png";
-import invite from "../imgs/invite.png";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+
 
 export default function AnalyticsDashboard(props) {
   const [data, setData] = useState([
@@ -44,6 +31,7 @@ export default function AnalyticsDashboard(props) {
       store: "Abarrotes Caramillo",
     },
   ]);
+  console.log(setData);
   let navigate = useNavigate();
   useEffect(() => {
     console.log("at home");
