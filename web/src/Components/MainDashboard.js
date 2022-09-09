@@ -8,7 +8,6 @@ import invite from "../imgs/invite.png";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -55,6 +54,7 @@ export default function MainDashboard(props) {
       amt: 2500,
     },
   ]);
+  console.log(setData);
   let navigate = useNavigate();
   useEffect(() => {
     console.log("at home");
